@@ -18,7 +18,7 @@ export class AuthorizationGuard implements CanActivate {
   // using the config service to gather all AUTH0 AUDIENCE and DOMAIN from .env
   constructor(private readonly configService: ConfigService) {
     this.AUTH0_AUDIENCE = this.configService.get('AUTH0_ADIENCE');
-    this.AUTH0_DOMAIN = this.configService.get('AUTH0_DOMAIN');
+    this.AUTH0_DOMAIN = `https://${this.configService.get('AUTH0_DOMAIN')}/`;
   }
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
