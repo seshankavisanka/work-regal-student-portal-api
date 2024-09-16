@@ -4,8 +4,9 @@ import { Auth0Module } from './config/auth0/auth0.module';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserModule } from './modules/user/user.module';
-import { NotificationTemplateModule } from './modules/notification.template/notification.template.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { NotificationModule } from './modules/notification/notification.module';
+import { SesModule } from './config/aws/ses/ses.module';
 
 @Module({
   imports: [
@@ -17,8 +18,9 @@ import { AuthModule } from './modules/auth/auth.module';
     AuthorizationModule,
     Auth0Module,
     UserModule,
-    NotificationTemplateModule,
     AuthModule,
+    NotificationModule,
+    SesModule,
   ],
 })
 export class AppModule {}

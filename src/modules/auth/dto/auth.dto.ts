@@ -9,3 +9,9 @@ export class LoginUserDto {
   @IsString()
   readonly password: string;
 }
+
+export class PasswordChangeDto {
+  @IsNotEmpty()
+  @IsEmail()
+  readonly email: string;
+}
