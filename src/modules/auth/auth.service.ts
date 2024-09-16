@@ -57,7 +57,7 @@ export class AuthService {
       url: ticket,
     };
 
-    await this.notificationService.sendNotification(
+    return await this.notificationService.sendNotification(
       email,
       'Password Reset',
       data,
