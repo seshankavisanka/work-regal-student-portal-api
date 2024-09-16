@@ -19,7 +19,7 @@ export class UserService {
     private readonly auth0UsersService: UsersService,
   ) {}
 
-  async findByEmail(id: string) {
+  async findById(id: string) {
     const userCheck = await this.userModel.findById(id).lean();
 
     if (isEmpty(userCheck)) throw new BadRequestException(t.invalidUserId);
