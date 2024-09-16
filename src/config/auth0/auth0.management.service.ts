@@ -1,9 +1,9 @@
 import { HttpService } from '@nestjs/axios';
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable, Scope } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import * as qs from 'qs';
 
-@Injectable()
+@Injectable({ scope: Scope.REQUEST })
 export class Auth0ManagementService {
   private readonly audience: string;
   private readonly client_id: string;
@@ -33,9 +33,9 @@ export class Auth0ManagementService {
         }),
       );
 
-      return a.data;
+      return a.data.access_token;
     } catch (e) {
-      console.log(e);
+      console.log(e.message);
       throw new BadRequestException(e.message);
     }
   }

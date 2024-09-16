@@ -1,10 +1,10 @@
 import { HttpService } from '@nestjs/axios';
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable, Scope } from '@nestjs/common';
 import { UserCredsI } from './auth0.types';
 import { ConfigService } from '@nestjs/config';
 import * as qs from 'qs';
 
-@Injectable()
+@Injectable({ scope: Scope.REQUEST })
 export class Auth0Service {
   private readonly audience: string;
   private readonly client_id: string;
@@ -12,7 +12,7 @@ export class Auth0Service {
 
   constructor(
     private readonly configService: ConfigService,
-    private readonly httpService: HttpService,
+    private httpService: HttpService,
   ) {
     this.httpService.axiosRef.defaults.baseURL = `https://${this.configService.get('AUTH0_DOMAIN')}/`;
     this.audience = this.configService.get('AUTH0_ADIENCE');
@@ -36,7 +36,7 @@ export class Auth0Service {
 
       return a.data;
     } catch (e) {
-      console.log(e);
+      console.log(e.message);
       throw new BadRequestException(e.message);
     }
   }

@@ -2,6 +2,10 @@ import { Module } from '@nestjs/common';
 import { AuthorizationModule } from './config/authorization/authorization.module';
 import { Auth0Module } from './config/auth0/auth0.module';
 import { ConfigModule } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
+import { UserModule } from './modules/user/user.module';
+import { NotificationTemplateModule } from './modules/notification.template/notification.template.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -9,8 +13,12 @@ import { ConfigModule } from '@nestjs/config';
       envFilePath: '.env',
       isGlobal: true,
     }),
+    MongooseModule.forRoot(process.env.DB_URI),
     AuthorizationModule,
     Auth0Module,
+    UserModule,
+    NotificationTemplateModule,
+    AuthModule,
   ],
 })
 export class AppModule {}
