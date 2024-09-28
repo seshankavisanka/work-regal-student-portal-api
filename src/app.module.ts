@@ -7,6 +7,8 @@ import { UserModule } from './modules/user/user.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { NotificationModule } from './modules/notification/notification.module';
 import { SesModule } from './config/aws/ses/ses.module';
+import { AssignmentModule } from './modules/assignment/assignment.module';
+import { NoticeModule } from './modules/notice/notice.module';
 
 @Module({
   imports: [
@@ -21,6 +23,8 @@ import { SesModule } from './config/aws/ses/ses.module';
     AuthModule,
     NotificationModule,
     SesModule,
+    AssignmentModule,
+    NoticeModule,
   ],
 })
 export class AppModule {}

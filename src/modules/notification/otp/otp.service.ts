@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { OTP_COLLECTION } from './otp.constants';
 import { Model } from 'mongoose';
 import { Otp } from './schema/otp.schema';
-import { isEmpty, isNotEmpty } from 'class-validator';
+import { isEmpty } from 'class-validator';
 
 @Injectable({ scope: Scope.REQUEST })
 export class OtpService {
@@ -12,6 +12,8 @@ export class OtpService {
   ) {}
 
   async create(target: string): Promise<Otp> {
+    await this.otpModel.deleteMany({ email: target });
+
     return (await this.otpModel.create({ email: target })).toObject();
   }
 
