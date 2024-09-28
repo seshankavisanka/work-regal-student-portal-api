@@ -10,6 +10,10 @@ import {
 export class CreateUserDto {
   @IsNotEmpty()
   @IsString()
+  readonly studentId: string;
+
+  @IsNotEmpty()
+  @IsString()
   @Matches(/^[^\s]+$/, {
     message: 'The first name must be a single word without spaces',
   })

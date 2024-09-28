@@ -7,6 +7,7 @@ import { UserSchema } from '../user/schema/user.schema';
 import { Auth0Module } from 'src/config/auth0/auth0.module';
 import { UsersModule } from 'src/config/auth0/users/users.module';
 import { NotificationModule } from '../notification/notification.module';
+import { OtpModule } from '../notification/otp/otp.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { NotificationModule } from '../notification/notification.module';
     Auth0Module,
     UsersModule,
     NotificationModule,
+    OtpModule,
   ],
   controllers: [AuthController],
   providers: [AuthService],

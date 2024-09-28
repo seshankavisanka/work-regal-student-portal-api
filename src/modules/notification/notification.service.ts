@@ -14,7 +14,7 @@ export class NotificationService {
     data: object,
     templateName: string,
   ) {
-    const filePath = path.join(__dirname, 'templates', `${templateName}.html`);
+    const filePath = path.join(__dirname, 'templates', `${templateName}`);
     const source = await fs.readFile(filePath, 'utf8');
 
     const template = Handlebars.compile(source);

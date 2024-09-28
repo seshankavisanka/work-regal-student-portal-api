@@ -1,4 +1,9 @@
 export interface UserCredsI {
-  readonly email: string;
+  readonly studentId: string;
   readonly password: string;
+}
+
+export interface LoginVerifyI {
+  readonly user: UserCredsI;
+  readonly otp: string;
 }

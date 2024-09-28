@@ -35,7 +35,7 @@ export class SesService {
             },
           },
         },
-        FromEmailAddress: 'seshankavisanka@gmail.com',
+        FromEmailAddress: 'regalproject24@gmail.com',
       });
     };
 
