@@ -11,6 +11,9 @@ export class Assignment extends Document {
   @Prop()
   readonly module: string;
 
+  @Prop()
+  readonly details: string;
+
   @Prop(Date)
   readonly issueDate: Date;
 

@@ -11,6 +11,10 @@ export class AssignmentCreateDto {
   readonly module: string;
 
   @IsNotEmpty()
+  @IsString()
+  readonly details: string;
+
+  @IsNotEmpty()
   @Type(() => Date)
   @IsDate()
   readonly issueDate: Date;
